@@ -20,7 +20,7 @@ When you send a message to the queue you should find a comparable event to the o
             "attributes": {
                 "ApproximateReceiveCount": "1",
                 "SentTimestamp": "1530136437293",
-                "SenderId": "IUOAJLUR7717UG3QPIV4D6:user",
+                "SenderId": "...:user",
                 "ApproximateFirstReceiveTimestamp": "1530136437328"
             },
             "messageAttributes": {},
