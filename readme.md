@@ -9,8 +9,8 @@ Upload the zipfile to an S3 bucket of choice.
 
 Create a new cloudformation stack using the lambda-sqs-sam-template.yml file.
 
-Try sending a message you should find a similar event to this in the Cloudwatch Logs stream for the Lambda function:
-
+When you send a message to the queue you should find a comparable event to the one below in the Cloudwatch Logs stream for the Lambda function:
+```json
 {
     "Records": [
         {
@@ -20,7 +20,7 @@ Try sending a message you should find a similar event to this in the Cloudwatch 
             "attributes": {
                 "ApproximateReceiveCount": "1",
                 "SentTimestamp": "1530136437293",
-                "SenderId": "IUOAJLUR7717UG3QPIV4D6:user",
+                "SenderId": "...:user",
                 "ApproximateFirstReceiveTimestamp": "1530136437328"
             },
             "messageAttributes": {},
@@ -31,3 +31,4 @@ Try sending a message you should find a similar event to this in the Cloudwatch 
         }
     ]
 }
+```
