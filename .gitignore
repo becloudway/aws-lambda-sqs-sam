@@ -1,0 +1,6 @@
+# IntelliJ
+*.iml
+.idea/
+
+# Project
+dist

@@ -1,0 +1,7 @@
+{
+  "name": "lambda-hello-logger",
+  "version": "0.0.1",
+  "scripts": {
+    "package": "rm -rf dist && mkdir dist && zip -r dist/lambda-hello-logger.zip index.js"
+  }
+}

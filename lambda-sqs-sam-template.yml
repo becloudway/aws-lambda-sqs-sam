@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Cloudway Lambda SQS SAM template
+
+Parameters:
+  CodeUriBucket:
+    Type: String
+    Description: S3 Bucket containing the zip file with the Lambda function source code.
+  CodeUriKey:
+    Type: String
+    Default: lambda-hello-logger.zip
+    Description: Location in S3 bucket where function source code zip is located.
+
+Resources:
+
+  SqsQueue:
+    Type: AWS::SQS::Queue
+
+  LambdaWorker:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri:
+        Bucket: !Ref CodeUriBucket
+        Key: !Ref CodeUriKey
+      Events:
+        SqsEvent:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt SqsQueue.Arn
+            BatchSize: 10
+
